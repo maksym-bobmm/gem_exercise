@@ -1,6 +1,9 @@
 require "gem_exercise/version"
 
 module GemExercise
-  class Error < StandardError; end
-  # Your code goes here...
+  class Message
+    def self.message
+      puts '---=== Successful ===---'
+    end
+  end
 end
