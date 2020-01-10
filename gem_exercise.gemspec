@@ -6,7 +6,7 @@ require "gem_exercise/version"
 Gem::Specification.new do |spec|
   spec.name          = "gem_exercise"
   spec.version       = GemExercise::VERSION
-  spec.authors       = ["Maksym Bobryshev"]
+  spec.author       = "Maksym Bobryshev"
   spec.email         = ["maksym.bobmm@gmail.com"]
 
   spec.summary       = %q{Add text to rails commands}
@@ -39,5 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_dependency "rails", ">= 5.1.0"
+  spec.add_dependency "rails", "~> 5.2", ">= 5.1.0"
 end

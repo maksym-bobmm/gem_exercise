@@ -1,9 +1,12 @@
-require "gem_exercise/version"
-
+require 'gem_exercise/version'
+require 'rails'
 module GemExercise
   class Message
-    def self.message
-      puts '---=== Successful ===---'
+    attr @text
+
+    def initialize
+      intializer = File.read(File.expand_path('config/initializers'))
+
     end
   end
 end
