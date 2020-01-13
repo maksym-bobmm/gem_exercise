@@ -1,12 +1,21 @@
 require 'gem_exercise/version'
-require 'rails'
 module GemExercise
   class Message
-    attr @text
+    attr :text
 
     def initialize
-      intializer = File.read(File.expand_path('config/initializers'))
+      file_path = File.join(Rails.root, %w[config initializers gem_exercise.rb])
+      @test = 'no initialize file found' and return unless File.exist? file_path
+      IO.foreach(file_path) do |line|
+        if line.include?('text')
+          @text = line.split('=')[1]
+        end
+      end
+    end
 
+    def write_message
+      puts(@text)
+      #logger.info(@test).green
     end
   end
 end
