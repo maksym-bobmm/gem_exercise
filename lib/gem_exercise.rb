@@ -1,20 +1,31 @@
+require 'gem_exercise/configuration'
 require 'gem_exercise/version'
+
 module GemExercise
   class Message
-    attr :text
+    attr_accessor :configuration
 
-    def initialize
-      file_path = File.join(Rails.root, %w[config initializers gem_exercise.rb])
-      @test = 'no initialize file found' and return unless File.exist? file_path
-      IO.foreach(file_path) do |line|
-        if line.include?('text')
-          @text = line.split('=')[1]
-        end
-      end
+    def self.configuration
+      @configuration ||= Configuration.new
     end
 
-    def write_message
-      puts(@text)
+    def self.reset
+      @configuration = Configuration.new
+    end
+
+    def self.configure
+      yield(configuration) if block_given?
+    end
+
+    #def initialize
+    #  file_path = File.join(Rails.root, %w[config initializers gem_exercise.rb])
+    #  @test = 'no initialize file found' and return unless File.exist? file_path
+    #  file = File.read(file_path)
+    #  @text = file.split('=')[1]
+    #end
+
+    def self.write_message
+      puts @configuration&.message
       #logger.info(@test).green
     end
   end
