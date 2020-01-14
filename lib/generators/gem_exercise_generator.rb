@@ -1,5 +1,3 @@
-require 'rails'
-
 class GemExerciseGenerator < Rails::Generators::Base
   desc "This generator creates an gem_exercise file at config/initializers"
 

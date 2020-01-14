@@ -2,8 +2,12 @@ require 'gem_exercise/configuration'
 require 'gem_exercise/version'
 
 module GemExercise
-  class Message
+  class Message < Rails::Railtie
     attr_accessor :configuration
+
+    config.after_initialize do
+      write_message
+    end
 
     def self.configuration
       @configuration ||= Configuration.new
@@ -25,6 +29,8 @@ module GemExercise
     #end
 
     def self.write_message
+      reset unless @configuration
+
       puts @configuration&.message
       #logger.info(@test).green
     end
