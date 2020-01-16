@@ -1,9 +1,5 @@
-module GemExercise
-  class Configuration
-    attr_accessor :message
-
-    def initialize
-      @message = <<~DEFAULT
+def receive_default
+  <<~DEFAULT
                      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
                      ░░░░░░░░░░░░░▄▄▄▄▄▄▄░░░░░░░░░
                      ░░░░░░░░░▄▀▀▀░░░░░░░▀▄░░░░░░░
@@ -23,7 +19,5 @@ module GemExercise
                      ░░░░▐▌▀▄░░░░░░░░░░░░░░░░░▐▌░░
                      ░░░░░█░░▀░░░░░░░░░░░░░░░░▀░░░
                      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-DEFAULT
-    end
-  end
+  DEFAULT
 end

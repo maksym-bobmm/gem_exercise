@@ -1,30 +1,33 @@
 require 'gem_exercise/configuration'
 require 'gem_exercise/version'
+require 'rails/railtie'
 
 module GemExercise
   class Message < Rails::Railtie
-    attr_accessor :configuration
+    class << self
+      attr_accessor :configuration
+
+      def conf
+        @configuration ||= Configuration.new
+      end
+
+      def reset
+        @configuration = Configuration.new
+      end
+
+      def configure
+        yield(conf) if block_given?
+      end
+
+      def write_message
+        reset unless @configuration
+
+        puts @configuration.message
+      end
+    end
 
     config.after_initialize do
-      write_message
-    end
-
-    def self.configuration
-      @configuration ||= Configuration.new
-    end
-
-    def self.reset
-      @configuration = Configuration.new
-    end
-
-    def self.configure
-      yield(configuration) if block_given?
-    end
-
-    def self.write_message
-      reset unless @configuration
-
-      puts @configuration&.message
+      Message.write_message
     end
   end
 end
