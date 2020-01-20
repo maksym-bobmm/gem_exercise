@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 require 'gem_exercise/configuration'
 require 'gem_exercise/version'
 require 'rails/railtie'
 
 module GemExercise
+  # class writes messages
   class Message < Rails::Railtie
     class << self
       attr_accessor :configuration

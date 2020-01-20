@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'support/default_text'
 
@@ -42,20 +44,19 @@ RSpec.describe GemExercise do
 
     it 'outputs custom text' do
       @message.configure { |config| config.message = @custom_text }
-      expect{ @message.write_message }.to output(@custom_text + "\n").to_stdout
-      #expect{ puts 'qwe' }.to output('qwe').to_stdout
+      expect { @message.write_message }.to output(@custom_text + "\n").to_stdout
     end
     it 'outputs default text' do
-      expect{ @message.write_message }.to output(@default_text).to_stdout
+      expect { @message.write_message }.to output(@default_text).to_stdout
     end
   end
-  
+
   context '#configure' do
     it 'yields block' do
       expect { |b| GemExercise::Message.configure(&b) }.to yield_with_args GemExercise::Configuration
     end
     it 'does not raise exception if called without block' do
-      expect{ GemExercise::Message.configure}.not_to raise_error
+      expect { GemExercise::Message.configure }.not_to raise_error
     end
   end
 

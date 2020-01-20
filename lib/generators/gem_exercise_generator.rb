@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# generate config in intializers
 class GemExerciseGenerator < Rails::Generators::Base
   desc 'This generator creates an gem_exercise file at config/initializers'
 
@@ -7,6 +10,3 @@ class GemExerciseGenerator < Rails::Generators::Base
     template 'gem_exercise.rb', 'config/initializers/gem_exercise.rb'
   end
 end
-
-
-
