@@ -33,8 +33,7 @@ RSpec.describe GemExercise do
       expect(@message.configuration.message).to eq @custom_text
     end
     it 'configure contain default text' do
-      @message.reset
-      expect(@message.configuration.message).to eq @default_text
+      expect(@message.conf.message).to eq @default_text
     end
   end
 
