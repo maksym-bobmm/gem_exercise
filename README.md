@@ -17,6 +17,7 @@ And then execute:
 ## Usage
 
 Gem automatically works after install. The default text is
+<pre>
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 ░░░░░░░░░░░░░▄▄▄▄▄▄▄░░░░░░░░░
 ░░░░░░░░░▄▀▀▀░░░░░░░▀▄░░░░░░░
@@ -36,6 +37,8 @@ Gem automatically works after install. The default text is
 ░░░░▐▌▀▄░░░░░░░░░░░░░░░░░▐▌░░
 ░░░░░█░░▀░░░░░░░░░░░░░░░░▀░░░
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+</pre>
+
 
 You can set your own text. For this you need to generate config file with:
 
