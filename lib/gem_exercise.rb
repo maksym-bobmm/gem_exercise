@@ -14,18 +14,12 @@ module GemExercise
         @configuration ||= Configuration.new
       end
 
-      def reset
-        @configuration = Configuration.new
-      end
-
       def configure
         yield(conf) if block_given?
       end
 
       def write_message
-        reset unless @configuration
-
-        puts @configuration.message
+        puts conf.message
       end
     end
 
