@@ -14,13 +14,13 @@ RSpec.describe GemExercise do
   end
 
   context 'Configuration class instance' do
-    before(:all) { @config = GemExercise::Configuration.new }
+    let(:config) { GemExercise::Configuration.new }
 
     it 'has a message' do
-      expect(@config).not_to be nil
+      expect(config).not_to be nil
     end
     it 'message contain default text ' do
-      expect(@config.message).to eq @default_text
+      expect(config.message).to eq @default_text
     end
   end
 
@@ -67,13 +67,6 @@ RSpec.describe GemExercise do
     it 'returns existing instance if one already set in \'configuration\' accessor' do
       existing_instance = GemExercise::Message.conf
       expect(GemExercise::Message.conf).to be existing_instance
-    end
-  end
-
-  context '#reset' do
-    it 'returns new instance even if one already set in \'configuration\' accessor' do
-      existing_instance = GemExercise::Message.conf
-      expect(GemExercise::Message.reset).not_to be existing_instance
     end
   end
 end
